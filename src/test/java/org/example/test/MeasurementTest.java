@@ -12,14 +12,14 @@ class MeasurementTest {
     void shouldEqualToMeasurement() throws IllegalAccessException {
         Measurement m1 = new Measurement(1, Unit.CM);
         Measurement m2 = new Measurement(1, Unit.CM);
-        assertTrue(m1.equals(m2));
+        assertTrue(m1.isEqualTo(m2));
     }
 
     @Test
     void shouldNotEqualToMeasurement() throws IllegalAccessException {
         Measurement m1 = new Measurement(1, Unit.CM);
         Measurement m2 = new Measurement(2, Unit.CM);
-        assertFalse(m1.equals(m2));
+        assertFalse(m1.isEqualTo(m2));
     }
 
     @Test
@@ -31,13 +31,13 @@ class MeasurementTest {
     void shouldMeasurementInMEqualToCM() throws IllegalAccessException {
         Measurement m1 = new Measurement(1, Unit.M);
         Measurement m2 = new Measurement(100, Unit.CM);
-        assertTrue(m1.equals(m2));
+        assertTrue(m1.isEqualTo(m2));
     }
     @Test
     void shouldMeasurementInCMEqualToKM() throws IllegalAccessException {
         Measurement m1 = new Measurement(100, Unit.CM);
         Measurement m2 = new Measurement(0.0001F, Unit.KM);
-        assertFalse(m1.equals(m2));
+        assertFalse(m1.isEqualTo(m2));
     }
 
 }
