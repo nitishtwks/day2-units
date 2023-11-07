@@ -21,13 +21,9 @@ public class Temperature {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Temperature that = (Temperature) o;
-        float value1 = value * unit.getMultiplicativeFactor() + unit.getAdditiveFactor();
-        float value2 = that.value * that.unit.getMultiplicativeFactor() + that.unit.getAdditiveFactor();
-        System.out.println("**********");
-        System.out.println(value1);
-        System.out.println(value2);
-
-        return Float.compare(value * unit.getMultiplicativeFactor() + unit.getAdditiveFactor(), that.value * that.unit.getMultiplicativeFactor() + that.unit.getAdditiveFactor()) == 0;
+        float value1 = (float) Math.ceil(unit.getMultiplicativeFactor() * (value + unit.getAdditiveFactor()));
+        float value2 = (float) Math.ceil(that.unit.getMultiplicativeFactor() * (that.value + that.unit.getAdditiveFactor()));
+        return Float.compare(value1, value2) == 0;
     }
 
     @Override

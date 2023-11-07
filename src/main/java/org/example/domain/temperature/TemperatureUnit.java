@@ -2,7 +2,7 @@ package org.example.domain.temperature;
 
 public enum TemperatureUnit {
     C(1, 0),
-    F(9/5, -32),
+    F(5.0f/9, -32),
     K(1, -273.15f);
 
     private final float multiplicativeFactor;
