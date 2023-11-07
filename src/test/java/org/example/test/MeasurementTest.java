@@ -54,7 +54,6 @@ class MeasurementTest {
         Measurement m1 = new Measurement(0, Unit.CM);
         Measurement m2 = new Measurement(1, Unit.M);
         Measurement m3 = m1.add(m2);
-        System.out.println(m3);
         Measurement expectedMeasurement = new Measurement(100, Unit.CM);
         assertTrue(m3.equals(expectedMeasurement));
     }
