@@ -1,15 +1,15 @@
-package org.example.domain;
+package org.example.domain.length;
 
 import java.util.Objects;
 
-public class Measurement {
+public class Length {
 
     private final float value;
 
     private final Unit unit;
     
-    public Measurement(float value, Unit unit) throws IllegalArgumentException {
-        if(unit==null){
+    public Length(float value, Unit unit) throws IllegalArgumentException {
+        if(unit ==null){
             throw new IllegalArgumentException("Please provide a valid unit");
         }
         this.value = value;
@@ -20,7 +20,7 @@ public class Measurement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Measurement that = (Measurement) o;
+        Length that = (Length) o;
         return Float.compare(value * unit.getNormalizingFactor(), that.value * that.unit.getNormalizingFactor()) == 0;
     }
 
@@ -29,9 +29,9 @@ public class Measurement {
         return Objects.hash(value * unit.getNormalizingFactor());
     }
 
-    public Measurement add(Measurement m2) {
+    public Length add(Length m2) {
         float normalizedValue = value * unit.getNormalizingFactor() + m2.value * m2.unit.getNormalizingFactor();
-        return new Measurement(normalizedValue/unit.getNormalizingFactor(), unit);
+        return new Length(normalizedValue/ unit.getNormalizingFactor(), unit);
     }
 
     @Override

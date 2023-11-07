@@ -1,6 +1,6 @@
-package org.example.domain;
+package org.example.domain.length;
 
-public enum Unit{
+public enum Unit {
     CM(1),
     M(100),
     KM(100000);
