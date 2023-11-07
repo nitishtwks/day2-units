@@ -28,4 +28,17 @@ public class Measurement {
     public int hashCode() {
         return Objects.hash(value * unit.getNormalizingFactor());
     }
+
+    public Measurement add(Measurement m2) {
+        float normalizedValue = value * unit.getNormalizingFactor() + m2.value * m2.unit.getNormalizingFactor();
+        return new Measurement(normalizedValue/unit.getNormalizingFactor(), unit);
+    }
+
+    @Override
+    public String toString() {
+        return "Measurement{" +
+                "value=" + value +
+                ", unit=" + unit +
+                '}';
+    }
 }
