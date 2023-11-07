@@ -1,5 +1,7 @@
 package org.example.domain;
 
+import java.util.Objects;
+
 public class Measurement {
 
     private final float value;
@@ -14,17 +16,16 @@ public class Measurement {
         this.unit = unit;
     }
 
-    public boolean isEqualTo(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Measurement other = (Measurement) obj;
-        if (Float.floatToIntBits(value * unit.getNormalizingFactor()) != Float.floatToIntBits(other.value * other.unit.getNormalizingFactor()))
-            return false;
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Measurement that = (Measurement) o;
+        return Float.compare(value * unit.getNormalizingFactor(), that.value * unit.getNormalizingFactor()) == 0;
     }
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value * unit.getNormalizingFactor());
+    }
 }
