@@ -21,7 +21,7 @@ public class Measurement {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Measurement that = (Measurement) o;
-        return Float.compare(value * unit.getNormalizingFactor(), that.value * unit.getNormalizingFactor()) == 0;
+        return Float.compare(value * unit.getNormalizingFactor(), that.value * that.unit.getNormalizingFactor()) == 0;
     }
 
     @Override
